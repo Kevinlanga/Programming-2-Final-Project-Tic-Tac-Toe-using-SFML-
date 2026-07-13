@@ -412,42 +412,6 @@ Possible extensions:
 
 ---
 
-# 🧪 Practice Challenges
-
-After completing the project, try:
-
-### Challenge 1
-
-Change the board size.
-
-Example:
-
-```
-4 x 4 Tic-Tac-Toe
-```
-
----
-
-### Challenge 2
-
-Add a scoreboard.
-
-Example:
-
-```
-Player X Wins: 5
-Player O Wins: 3
-Draws: 2
-```
-
----
-
-### Challenge 3
-
-Create an AI opponent.
-
----
-
 # 🤝 Contributing
 
 Contributions are welcome!
