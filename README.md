@@ -8,6 +8,80 @@ The purpose of this project is to demonstrate how the core concepts learned in c
 
 ---
 
+# 🚀 Getting Started
+
+Follow these steps to download and run the project on your own computer.
+
+## Prerequisites
+
+Before cloning the repository, make sure you have the following installed:
+
+- **Git**
+- **Visual Studio 2022** (with the **Desktop development with C++** workload)
+- **SFML 3**
+- **vcpkg** (recommended for managing SFML)
+
+---
+
+## Step 1 – Clone the Repository
+
+Open a terminal or Git Bash and run:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/TicTacToe-SFML.git
+```
+
+Replace `YOUR_USERNAME` with the GitHub username or organization that owns the repository.
+
+---
+
+## Step 2 – Open the Project
+
+Navigate to the project folder and open the Visual Studio solution (`.sln`) file.
+
+```bash
+cd TicTacToe-SFML
+```
+
+---
+
+## Step 3 – Install SFML (if needed)
+
+If you're using **vcpkg**, install SFML by running:
+
+```powershell
+vcpkg install sfml
+```
+
+If Visual Studio is already integrated with vcpkg, the project should automatically find the SFML libraries.
+
+---
+
+## Step 4 – Verify the Assets Folder
+
+Make sure the project contains the required font file:
+
+```text
+Assets/
+└── Roboto-Regular.ttf
+```
+
+If the font is missing, download it or copy it from the repository.
+
+---
+
+## Step 5 – Build and Run
+
+In Visual Studio:
+
+1. Select **Debug** or **Release**
+2. Press **Ctrl + Shift + B** to build the project.
+3. Press **Ctrl + F5** (or **F5**) to run the application.
+
+If everything is configured correctly, the Tic-Tac-Toe game window should appear.
+
+---
+
 # 🎯 Learning Objectives
 
 This project demonstrates the following concepts taught in **COP 3003**:
