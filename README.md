@@ -1,480 +1,425 @@
-# 🎮 Build Tic-Tac-Toe in C++ with SFML 3
+# 🎮 Tic-Tac-Toe in C++ with SFML 3
 
-![C++](https://img.shields.io/badge/C++-Programming-blue)
-![SFML](https://img.shields.io/badge/SFML-3.0-green)
-![OOP](https://img.shields.io/badge/Object--Oriented%20Programming-orange)
-![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Documentation-purple)
+## Project Overview
 
-A beginner-friendly, step-by-step tutorial that teaches students how to build a complete **Tic-Tac-Toe game in C++ using SFML 3**.
+This project is a graphical **Tic-Tac-Toe game** developed in **C++** using **SFML 3** as part of **COP 3003 – Object-Oriented Programming**.
 
-This project was created as an educational resource for students learning:
-
-* C++
-* Object-Oriented Programming (OOP)
-* Game development concepts
-* Event-driven programming
-* Graphics programming
-* Software design principles
-
-The goal of this project is not just to create a working game, but to understand **why the code is structured the way it is**.
-
----
-
-# 📚 Project Overview
-
-Many beginner programmers learn individual C++ concepts but struggle to understand how those concepts work together in a complete application.
-
-This project bridges that gap by building a real game from the ground up.
-
-Students will learn how to create:
-
-* A graphical window
-* A game loop
-* A board system
-* Interactive cells
-* Mouse input
-* Keyboard input
-* Turn management
-* Game states
-* Winner detection
-* Restart functionality
-
-By the end, students will have created a complete playable Tic-Tac-Toe game.
+The purpose of this project is to demonstrate how the core concepts learned in class can be applied to build a complete interactive application. Rather than placing all of the code inside `main()`, the program is organized into multiple classes that each have a specific responsibility. This approach makes the program easier to read, maintain, and expand.
 
 ---
 
 # 🎯 Learning Objectives
 
-After completing this project, students should understand:
+This project demonstrates the following concepts taught in **COP 3003**:
 
-## C++ Concepts
-
-* Classes and objects
-* Constructors and destructors
-* Encapsulation
-* Composition
-* Header/source file organization
-* Functions and parameters
-* Arrays
-* Conditional logic
-* Loops
+- Classes and Objects
+- Encapsulation
+- Constructors
+- Member Functions
+- Arrays
+- Object-Oriented Design
+- Composition
+- Header (`.h`) and Source (`.cpp`) Files
+- Program Organization
+- Separation of Responsibilities
+- Game Loop
+- Event Handling
+- User Input
+- Conditional Statements
+- Loops
 
 ---
 
-## Object-Oriented Programming Concepts
+# 🏗️ Object-Oriented Design
 
-The project follows a simple OOP structure:
+The project is organized using three primary classes.
 
-```
+```text
 Game
- |
- |-- Board
-       |
-       |-- Cell
+└── Board
+    └── Cell
 ```
 
-### Game Class
+This structure demonstrates **composition**, where larger objects are built from smaller objects that each perform a specific task.
 
-Responsible for:
+## 🎮 Game Class
 
-* Window management
-* Game loop
-* User input
-* Game state
+### Responsibilities
 
----
+- Creates the game window
+- Runs the main game loop
+- Processes keyboard and mouse events
+- Keeps track of the current player
+- Checks for wins and draws
+- Restarts the game when **R** is pressed
 
-### Board Class
+### Why It Was Used
 
-Responsible for:
-
-* Managing the 3x3 grid
-* Placing marks
-* Checking winners
-* Detecting draws
+The `Game` class manages the overall application and coordinates communication between the other classes. Keeping this logic inside one class allows `main.cpp` to remain simple.
 
 ---
 
-### Cell Class
+## 🟦 Board Class
 
-Responsible for:
+### Responsibilities
 
-* Storing one board position
-* Tracking X, O, or empty state
+- Stores the nine game cells
+- Draws the Tic-Tac-Toe board
+- Places X and O marks
+- Checks for winning combinations
+- Detects draw conditions
+- Resets the board
 
----
+### Why It Was Used
 
-# 🎮 Game Features
-
-Current features include:
-
-✅ SFML 3 graphics window
-✅ Tic-Tac-Toe grid
-✅ Mouse-controlled gameplay
-✅ X and O turns
-✅ Prevent illegal moves
-✅ Winner detection
-✅ Draw detection
-✅ Restart game using keyboard input
-✅ Object-oriented design
+The `Board` class separates all game-board logic from the rest of the application, improving readability and maintainability.
 
 ---
 
-# 🖼️ Screenshots
+## ⬜ Cell Class
 
-(Add screenshots here)
+### Responsibilities
 
-Example:
+- Represents one square on the board
+- Stores X, O, or Empty
+- Determines whether the square is occupied
+- Draws its current value
 
-```
-images/
-|
-├── gameplay.png
-├── winner.png
-└── restart.png
-```
+### Why It Was Used
 
----
-
-# 🛠️ Technologies Used
-
-## Programming Language
-
-* C++
-
-## Graphics Library
-
-* SFML 3
-
-## Development Environment
-
-* Visual Studio
-
-## Documentation
-
-* GitHub Pages
-* Markdown
+Each square is represented as its own object, allowing data and behavior to remain together while demonstrating object-oriented design.
 
 ---
 
-# 📂 Project Structure
+# 📂 File Structure
 
-```
-TicTacToe-SFML/
-
+```text
+src/
 │
-├── src/
-│   |
-│   ├── main.cpp
-│   ├── Game.cpp
-│   ├── Game.h
-│   ├── Board.cpp
-│   ├── Board.h
-│   ├── Cell.cpp
-│   └── Cell.h
-│
-├── Assets/
-│   |
-│   └── Roboto-Regular.ttf
-│
-├── README.md
-│
-└── Documentation/
+├── main.cpp
+├── Game.h
+├── Game.cpp
+├── Board.h
+├── Board.cpp
+├── Cell.h
+└── Cell.cpp
 ```
 
----
+## main.cpp
 
-# ⚙️ Requirements
-
-Before running this project, install:
-
-## Required Software
-
-* Visual Studio 2022
-* C++ Desktop Development workload
-* SFML 3
+- Entry point of the application
+- Creates a `Game` object
+- Starts the program
 
 ---
 
-# 🚀 Installation
+## Game.h / Game.cpp
 
-## Step 1: Clone Repository
+Contains the `Game` class.
 
-```bash
-git clone https://github.com/YOUR_USERNAME/TicTacToe-SFML.git
-```
+Responsibilities include:
 
----
-
-## Step 2: Open Project
-
-Open the Visual Studio project.
-
----
-
-## Step 3: Configure SFML
-
-Make sure SFML libraries are correctly linked.
-
-Required folders:
-
-```
-SFML/
- |
- ├── include/
- |
- └── lib/
-```
+- Creating the SFML window
+- Running the game loop
+- Processing events
+- Updating the game state
+- Drawing objects
+- Restarting the game
 
 ---
 
-## Step 4: Add Assets
+## Board.h / Board.cpp
 
-Place the font file here:
+Contains the `Board` class.
 
-```
-Assets/
- |
- └── Roboto-Regular.ttf
-```
+Responsibilities include:
 
----
-
-## Step 5: Build and Run
-
-Compile the project.
-
-Run:
-
-```
-Ctrl + F5
-```
-
-The game window should appear.
+- Managing the 3×3 grid
+- Updating board positions
+- Checking for winners
+- Checking for draws
+- Resetting the game board
 
 ---
 
-# 🎮 How to Play
+## Cell.h / Cell.cpp
 
-## Mouse Controls
+Contains the `Cell` class.
 
-Click any empty square.
+Responsibilities include:
 
-Players alternate:
-
-```
-Player X
-    ↓
-Player O
-    ↓
-Player X
-```
+- Representing one square
+- Storing X, O, or Empty
+- Determining whether the cell is occupied
+- Drawing the cell
 
 ---
 
-## Restart Game
+# 💻 Key C++ Concepts Used
 
-After a game ends:
+## 📦 Classes and Objects
 
-Press:
+**What it is**
 
-```
-R
-```
+A class is a blueprint used to create objects.
 
-to restart.
+**Where it appears**
 
----
+- `Game`
+- `Board`
+- `Cell`
 
-# 🧠 Design Decisions
+**Why it was used**
 
-This project intentionally avoids placing everything inside `main()`.
-
-A beginner approach might look like:
-
-```
-main()
- |
- |-- Draw everything
- |-- Handle input
- |-- Check winners
- |-- Reset game
-```
-
-However, this quickly becomes difficult to maintain.
-
-Instead, responsibilities are separated:
-
-```
-Game
- |
- | controls the application
-
-
-Board
- |
- | controls the grid
-
-
-Cell
- |
- | controls one square
-```
-
-This follows the software engineering principle:
-
-> Each class should have one clear responsibility.
+Classes organize the application into logical components with clearly defined responsibilities.
 
 ---
 
-# 📖 Tutorial Website
+## 🔒 Encapsulation
 
-A complete GitHub Pages tutorial will accompany this project.
+**What it is**
 
-The tutorial will cover:
+Encapsulation keeps data private and provides public member functions to safely interact with it.
 
-## Lesson 1
+**Where it appears**
 
-Project Setup
+Each class stores its own data members and exposes only the functions needed by other classes.
 
-## Lesson 2
+**Why it was used**
 
-Creating the SFML Window
-
-## Lesson 3
-
-Object-Oriented Design
-
-## Lesson 4
-
-Drawing the Board
-
-## Lesson 5
-
-Mouse Input
-
-## Lesson 6
-
-Adding X and O
-
-## Lesson 7
-
-Drawing Text
-
-## Lesson 8
-
-Winner Detection
-
-## Lesson 9
-
-Draw Detection
-
-## Lesson 10
-
-Restarting the Game
-
-## Lesson 11
-
-Future Improvements
+Encapsulation protects important data and improves program organization.
 
 ---
 
-# 🔮 Future Improvements
+## 🏗️ Constructors
 
-Possible extensions:
+**What it is**
 
-## Beginner Improvements
+Constructors initialize objects when they are created.
 
-* Better colors
-* Improved fonts
-* Animations
-* Sound effects
-* Score counter
+**Where it appears**
 
----
+- `Game` constructor initializes the game window.
+- `Board` constructor initializes the game board.
+- `Cell` constructor initializes each square as empty.
 
-## Intermediate Improvements
+**Why it was used**
 
-* Start menu
-* Difficulty selection
-* Player names
-* Themes
-* Game history
+Constructors ensure every object starts in a valid state before gameplay begins.
 
 ---
 
-## Advanced Improvements
+## ⚙️ Member Functions
 
-* Computer AI opponent
-* Minimax algorithm
-* Online multiplayer
-* Networking
+**What it is**
 
----
+Functions perform specific tasks within a class.
 
-# 🤝 Contributing
+**Where it appears**
 
-Contributions are welcome!
+Examples include:
 
-Students are encouraged to:
+- `run()`
+- `processEvents()`
+- `update()`
+- `draw()`
+- `checkWinner()`
+- `checkDraw()`
+- `reset()`
 
-* Improve documentation
-* Add examples
-* Fix bugs
-* Suggest improvements
+**Why it was used**
 
-Steps:
-
-1. Fork the repository
-2. Create a new branch
-3. Make changes
-4. Submit a pull request
+Breaking the program into smaller functions improves readability, reuse, and debugging.
 
 ---
 
-# 📜 License
+## 🧮 Arrays
 
-This project is licensed under the MIT License.
+**What it is**
 
-You are free to:
+Arrays store multiple values of the same type.
 
-* Use it
-* Modify it
-* Share it
-* Learn from it
+**Where it appears**
 
----
+The `Board` class stores the nine game cells in a fixed-size array.
 
-# 👩‍💻 Author
+**Why it was used**
 
-Created as a learning project to demonstrate:
-
-* C++ programming
-* SFML development
-* Object-oriented design
-* Game development fundamentals
+Arrays efficiently represent the 3×3 Tic-Tac-Toe board.
 
 ---
 
-# ⭐ Acknowledgements
+## 🧩 Composition
 
-Special thanks to:
+**What it is**
 
-* SFML community
-* C++ developer community
-* Computer Science educators
-* Students learning programming
+Composition means one class contains objects of another class.
+
+**Where it appears**
+
+- `Game` contains a `Board`
+- `Board` contains multiple `Cell` objects
+
+**Why it was used**
+
+Composition separates responsibilities while allowing the classes to work together as one application.
 
 ---
 
-# 🎯 Final Goal
+## 📄 Header and Source Files
 
-The purpose of this project is simple:
+**What it is**
 
-> Learn by building.
+Header files declare classes and functions, while source files contain their implementations.
 
-Programming becomes easier when concepts are connected to real projects.
+**Where it appears**
 
-This tutorial transforms individual C++ concepts into a complete working application.
+- `Game.h` / `Game.cpp`
+- `Board.h` / `Board.cpp`
+- `Cell.h` / `Cell.cpp`
 
-Happy coding! 🎮
+**Why it was used**
+
+Separating declarations from implementations improves organization and follows standard C++ programming practices.
+
+---
+
+## 🔄 Game Loop
+
+**What it is**
+
+The game loop continuously updates the application while the window remains open.
+
+**Where it appears**
+
+Inside the `Game` class.
+
+**Why it was used**
+
+The game loop allows the program to repeatedly process input, update the game, and redraw the window.
+
+---
+
+## 🖱️ Event Handling
+
+**What it is**
+
+Event handling allows the program to respond to user actions.
+
+**Where it appears**
+
+- Mouse clicks place X and O.
+- Keyboard input detects when the **R** key is pressed.
+
+**Why it was used**
+
+Event handling makes the application interactive.
+
+---
+
+## ⌨️ User Input
+
+**What it is**
+
+User input allows players to control the application.
+
+**Where it appears**
+
+- Mouse clicks select board positions.
+- Keyboard input restarts the game.
+
+**Why it was used**
+
+Without user input, players would not be able to interact with the game.
+
+---
+
+## 🔀 Conditional Statements
+
+**What it is**
+
+Conditional statements allow the program to make decisions.
+
+**Where it appears**
+
+Examples include:
+
+- Checking if a square is empty
+- Switching player turns
+- Detecting a winner
+- Detecting a draw
+- Restarting the game
+
+**Why it was used**
+
+Conditionals control the game's logic and enforce the rules.
+
+---
+
+## 🔁 Loops
+
+**What it is**
+
+Loops repeatedly execute code while a condition remains true.
+
+**Where it appears**
+
+- Main game loop
+- Drawing the board
+- Checking winning combinations
+
+**Why it was used**
+
+Loops efficiently repeat operations throughout the game.
+
+---
+
+# ▶️ How the Program Works
+
+The game follows this sequence:
+
+1. The program begins in `main.cpp`.
+2. A `Game` object is created.
+3. Constructors initialize the game window and board.
+4. The SFML window opens.
+5. The main game loop begins.
+6. User input is continuously processed.
+7. Clicking an empty square updates the corresponding `Cell`.
+8. The `Board` checks for a winner.
+9. If no winner exists, the program checks for a draw.
+10. If the game continues, the current player switches.
+11. The updated board is redrawn.
+12. Pressing the **R** key resets the board for a new game.
+
+---
+
+# ✅ Demonstration Checklist
+
+During the presentation, demonstrate the following:
+
+- Launch the application
+- Explain `main.cpp`
+- Explain the `Game` class
+- Explain the `Board` class
+- Explain the `Cell` class
+- Show the game window
+- Demonstrate mouse input
+- Demonstrate turn switching
+- Explain the game loop
+- Explain event handling
+- Demonstrate winner detection
+- Demonstrate draw detection
+- Restart the game using the **R** key
+- Explain composition
+- Explain encapsulation
+- Explain how object-oriented programming improved program organization
+
+---
+
+# 🎓 Closing Summary
+
+This Tic-Tac-Toe project demonstrates many of the core concepts taught in **COP 3003**, including classes, objects, encapsulation, constructors, functions, arrays, composition, event handling, loops, and conditional statements.
+
+By separating the application into the **Game**, **Board**, and **Cell** classes, the project follows object-oriented design principles that make the code modular, organized, and easier to maintain.
+
+Overall, the project shows how fundamental C++ concepts work together to create a complete, interactive application while reinforcing the software engineering principles learned throughout the course.
